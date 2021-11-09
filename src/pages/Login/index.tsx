@@ -1,12 +1,12 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
 const Login: React.FC = () => {
-  const list = 'test';
-
-  console.log(list);
-
-  return <View />;
+  return (
+    <View>
+      <Text>Login Screen</Text>
+    </View>
+  );
 };
 
 export default Login;
