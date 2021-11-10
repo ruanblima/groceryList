@@ -68,6 +68,7 @@
           "newlinesBetween": "always",
           "groups": [
             ["/^react$/", "module"],
+            ["/^~/pages/"],
             ["/^~/components/"],
             ["/^~/"],
             ["parent", "sibling", "index"],
