@@ -19,7 +19,7 @@ export const ContainerHeader = styled.View`
 `;
 
 export const TextLogin = styled.Text<TextProps>`
-  color: ${({ colorText }) => colorText || '#0076ce'};
+  color: ${({ colorText, theme }) => colorText || theme.Colors.BLUE};
   font-size: 55px;
 `;
 
@@ -40,7 +40,7 @@ export const InputLogin = styled.TextInput`
 `;
 
 export const ButtonText = styled.Text<TextProps>`
-  color: #ffffff;
+  color: ${({ theme }) => theme.Colors.WHITE};
   font-size: 20px;
 `;
 
@@ -56,5 +56,5 @@ export const Button = styled.TouchableOpacity`
   border-radius: 4px;
   justify-content: center;
   align-items: center;
-  background: #0076ce;
+  background: ${({ theme }) => theme.Colors.BLUE};
 `;

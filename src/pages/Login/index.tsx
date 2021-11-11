@@ -1,13 +1,13 @@
-import { useNavigation } from '@react-navigation/native';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useState } from 'react';
 
 import { HOME_SCREEN } from '~/constants/routes';
 
 import * as S from './styles';
 
-const Login: React.FC = () => {
-  const navigation = useNavigation();
+type Props = NativeStackScreenProps<'LoginScreen'>;
 
+const Login: React.FC<Props> = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
