@@ -30,15 +30,6 @@ export const ContainerInputs = styled.View`
   margin-top: 50px;
 `;
 
-export const InputLogin = styled.TextInput`
-  width: 70%;
-  height: 40px;
-  border-width: 1px;
-  border-color: black;
-  margin-bottom: 20px;
-  border-radius: 6px;
-`;
-
 export const ButtonText = styled.Text<TextProps>`
   color: ${({ theme }) => theme.Colors.WHITE};
   font-size: 20px;
