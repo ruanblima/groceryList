@@ -7,9 +7,9 @@ import { HOME_SCREEN } from '~/constants/routes';
 
 import * as S from './styles';
 
-type Props = NativeStackScreenProps<'LoginScreen'>;
+type Props = NativeStackScreenProps<any, 'LoginScreen'>;
 
-const Login: React.FC<Props> = ({ navigation }) => {
+export function Login({ navigation }: Props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -20,38 +20,35 @@ const Login: React.FC<Props> = ({ navigation }) => {
   }
 
   return (
-    <S.SafeArea>
-      <S.Container>
-        <S.ContainerHeader>
-          <S.TextLogin>Login</S.TextLogin>
-        </S.ContainerHeader>
-        <S.ContainerInputs>
-          <Input
-            iconLeft="person"
-            iconType="ionicons"
-            placeholder="Digite seu username"
-            value={username}
-            onChangeText={setUsername}
-          />
+    <S.Container>
+      <S.StatusBar />
+      <S.ContainerHeader>
+        <S.TextLogin>Login</S.TextLogin>
+      </S.ContainerHeader>
+      <S.ContainerInputs>
+        <Input
+          iconLeft="person"
+          iconType="ionicons"
+          placeholder="Digite seu username"
+          value={username}
+          onChangeText={setUsername}
+        />
 
-          <Input
-            iconLeft="lock"
-            placeholder="Digite sua senha"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry={!showPassword}
-            actionIcon={() => setShowPassword(!showPassword)}
-            iconRight={showPassword ? 'eye-off' : 'eye'}
-          />
-        </S.ContainerInputs>
-        <S.ContainerButton>
-          <S.Button onPress={() => handleLogin()}>
-            <S.ButtonText>ENTRAR</S.ButtonText>
-          </S.Button>
-        </S.ContainerButton>
-      </S.Container>
-    </S.SafeArea>
+        <Input
+          iconLeft="lock"
+          placeholder="Digite sua senha"
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry={!showPassword}
+          actionIcon={() => setShowPassword(!showPassword)}
+          iconRight={showPassword ? 'eye-off' : 'eye'}
+        />
+      </S.ContainerInputs>
+      <S.ContainerButton>
+        <S.Button onPress={() => handleLogin()}>
+          <S.ButtonText>ENTRAR</S.ButtonText>
+        </S.Button>
+      </S.ContainerButton>
+    </S.Container>
   );
-};
-
-export default Login;
+}

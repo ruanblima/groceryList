@@ -1,10 +1,12 @@
 import styled from 'styled-components/native';
 
+import Icon from '~/components/Icon';
+
 import { sfs } from '~/utils/responsibleText';
 
 export const Container = styled.View`
   flex: 1;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   background-color: white;
 `;
@@ -35,7 +37,7 @@ export const TextInput = styled.TextInput`
   border-radius: 10px;
 `;
 
-export const ContainerItem = styled.View`
+export const ContainerItem = styled.TouchableOpacity`
   justify-content: flex-start;
   align-items: center;
   flex-direction: row;
@@ -56,7 +58,13 @@ export const TitleItem = styled.Text`
 
 export const List = styled.FlatList`
   width: 100%;
+  padding: 20px 0px;
+`;
+
+export const ListCategory = styled.FlatList`
+  width: 100%;
   padding: 20px;
+  margin-bottom: 100px;
 `;
 
 export const ButtonText = styled.Text`
@@ -64,11 +72,26 @@ export const ButtonText = styled.Text`
   font-size: 20px;
 `;
 
-export const ButtonIcon = styled.TouchableOpacity``;
-
 export const Button = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.Colors.BLUE};
   border-radius: 6px;
   padding: 15px;
   margin-bottom: 50px;
 `;
+
+export const ContainerBottom = styled.View`
+  height: 80px;
+  width: 100%;
+  padding: 10px;
+  position: absolute;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: ${({ theme }) => theme.Colors.BLUE};
+`;
+
+export const IconList = styled(Icon).attrs(() => ({
+  name: 'clipboard-list',
+  size: 50,
+  color: 'white',
+  type: 'font-5',
+}))``;

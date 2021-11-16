@@ -14,13 +14,13 @@ type ColorsProps = {
 };
 
 type SizeProps = {
-  FONTSIZE_BUTTON: string;
-  FONTSIZE_INPUT: string;
-  FONTSIZE_LABEL: string;
-  FONTSIZE_INPUT_LABEL: string;
-  ICON_SIZE: string;
-  ICON_SIZE_BACK: string;
-  ICON_SIZE_HEADER: string;
+  FONTSIZE_BUTTON: number;
+  FONTSIZE_INPUT: number;
+  FONTSIZE_LABEL: number;
+  FONTSIZE_INPUT_LABEL: number;
+  ICON_SIZE: number;
+  ICON_SIZE_BACK: number;
+  ICON_SIZE_HEADER: number;
 };
 
 declare module 'styled-components' {

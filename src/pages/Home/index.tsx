@@ -1,3 +1,4 @@
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useEffect, useState, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 
@@ -9,7 +10,9 @@ import { listCategory } from './mock';
 
 import * as S from './styles';
 
-export function Home({ navigation }: any) {
+type Props = NativeStackScreenProps<any, 'HomeScreen'>;
+
+export function Home({ navigation }: Props) {
   const { Colors } = useContext(ThemeContext);
 
   const [searchName, setSearchName] = useState('');
@@ -72,7 +75,7 @@ export function Home({ navigation }: any) {
         />
       </S.ContainerSearch>
 
-      <S.List
+      <S.ListCategory
         data={listCategory}
         extraData={listCategory}
         renderItem={renderCategory}
@@ -80,6 +83,9 @@ export function Home({ navigation }: any) {
         showsVerticalScrollIndicator={false}
       />
       <ButtonFloat iconColor={Colors.WHITE} actionButton={goToNewItem} />
+      <S.ContainerBottom>
+        <S.IconList />
+      </S.ContainerBottom>
     </S.Container>
   );
 }

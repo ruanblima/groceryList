@@ -1,8 +1,8 @@
 import styled from 'styled-components/native';
 
-export const SafeArea = styled.SafeAreaView`
-  flex: 1;
-`;
+export const StatusBar = styled.StatusBar.attrs(({ theme }) => ({
+  backgroundColor: theme.Colors.BLUE,
+}))``;
 
 export const Container = styled.View`
   flex: 1;
