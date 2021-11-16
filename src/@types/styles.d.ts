@@ -19,6 +19,8 @@ type SizeProps = {
   FONTSIZE_LABEL: string;
   FONTSIZE_INPUT_LABEL: string;
   ICON_SIZE: string;
+  ICON_SIZE_BACK: string;
+  ICON_SIZE_HEADER: string;
 };
 
 declare module 'styled-components' {

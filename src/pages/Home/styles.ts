@@ -1,7 +1,5 @@
 import styled from 'styled-components/native';
 
-import Icon from '~/components/Icon';
-
 export const Container = styled.View`
   flex: 1;
   justify-content: center;
@@ -66,9 +64,3 @@ export const Button = styled.TouchableOpacity`
   padding: 15px;
   margin-bottom: 50px;
 `;
-
-export const IconEdit = styled(Icon).attrs(() => ({
-  name: 'edit',
-  type: 'material',
-  size: 25,
-}))``;

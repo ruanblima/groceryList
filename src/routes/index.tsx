@@ -7,6 +7,8 @@ import { ThemeProvider } from 'styled-components/native';
 import { Home } from '~/pages/Home';
 import Login from '~/pages/Login';
 
+import { Header } from '~/components/Header';
+
 import { HOME_SCREEN, LOGIN_SCREEN } from '~/constants/routes';
 import Theme from '~/themes';
 
@@ -17,19 +19,19 @@ export function RootStack() {
     <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
       <ThemeProvider theme={Theme.light}>
         <NavigationContainer>
-          <Stack.Navigator
-            initialRouteName={LOGIN_SCREEN}
-            screenOptions={{
-              gestureEnabled: false,
-              animationEnabled: false,
-            }}
-          >
+          <Stack.Navigator initialRouteName={LOGIN_SCREEN}>
             <Stack.Screen
               name={LOGIN_SCREEN}
               component={Login}
               options={{ headerShown: false }}
             />
-            <Stack.Screen name={HOME_SCREEN} component={Home} />
+            <Stack.Screen
+              name={HOME_SCREEN}
+              component={Home}
+              options={{
+                header: props => <Header {...props} />,
+              }}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </ThemeProvider>

@@ -23,9 +23,7 @@ const Login: React.FC<Props> = ({ navigation }) => {
     <S.SafeArea>
       <S.Container>
         <S.ContainerHeader>
-          <S.TextLogin colorText={username && password && '#7DB428'}>
-            Login
-          </S.TextLogin>
+          <S.TextLogin>Login</S.TextLogin>
         </S.ContainerHeader>
         <S.ContainerInputs>
           <Input

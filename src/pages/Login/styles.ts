@@ -1,9 +1,5 @@
 import styled from 'styled-components/native';
 
-interface TextProps {
-  colorText?: string;
-}
-
 export const SafeArea = styled.SafeAreaView`
   flex: 1;
 `;
@@ -18,8 +14,8 @@ export const ContainerHeader = styled.View`
   align-items: center;
 `;
 
-export const TextLogin = styled.Text<TextProps>`
-  color: ${({ colorText, theme }) => colorText || theme.Colors.BLUE};
+export const TextLogin = styled.Text`
+  color: ${({ theme }) => theme.Colors.BLUE};
   font-size: 55px;
 `;
 
@@ -30,7 +26,7 @@ export const ContainerInputs = styled.View`
   margin-top: 50px;
 `;
 
-export const ButtonText = styled.Text<TextProps>`
+export const ButtonText = styled.Text`
   color: ${({ theme }) => theme.Colors.WHITE};
   font-size: 20px;
 `;

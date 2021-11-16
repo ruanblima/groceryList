@@ -1,4 +1,3 @@
-import { includes, filter, toUpper } from 'lodash';
 import React, { useEffect, useState, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 
@@ -13,14 +12,9 @@ import * as S from './styles';
 export function Home({ navigation }: any) {
   const { Colors } = useContext(ThemeContext);
 
-  const [list, setList] = useState([]);
   const [searchName, setSearchName] = useState('');
-  const [allListItems, setAllListItems] = useState([]);
-  const [listItemsFilter, setListItemsFilter] = useState([]);
 
-  const [checked, setChecked] = useState(false);
-
-  const goEditItem = item => {
+  const goEditItem = (item: any) => {
     // navigation.navigate(NEW_ITEM, { item });
   };
 
@@ -28,9 +22,6 @@ export function Home({ navigation }: any) {
     return (
       <S.ContainerItem>
         <S.TitleItem>{item.name}</S.TitleItem>
-        <S.ButtonIcon onPress={() => goEditItem(item)}>
-          <S.IconEdit />
-        </S.ButtonIcon>
       </S.ContainerItem>
     );
   };
@@ -56,21 +47,19 @@ export function Home({ navigation }: any) {
     // navigation.navigate(NEW_ITEM, { item: null });
   };
 
-  const updateItemsFilter = () => {
-    let itemsFilter = [];
-
-    itemsFilter = filter(allListItems, item =>
-      includes(toUpper(item.name), toUpper(searchName)),
-    );
-
-    setListItemsFilter(itemsFilter);
+  const goToCart = () => {
+    // navigation.navigate(NEW_ITEM, { item: null });
   };
 
   useEffect(() => {
-    if (searchName) {
-      updateItemsFilter();
-    }
-  }, [searchName, updateItemsFilter]);
+    navigation.setOptions({
+      iconRight: 'md-cart',
+      iconType: 'ionicons',
+      actionButtonRight: goToCart,
+      iconColor: Colors.WHITE,
+      title: 'Bem vindo Ruan',
+    });
+  }, [navigation, goToCart, Colors]);
 
   return (
     <S.Container>
@@ -81,23 +70,14 @@ export function Home({ navigation }: any) {
           onChangeText={setSearchName}
         />
       </S.ContainerSearch>
-      {searchName ? (
-        <S.List
-          data={listItemsFilter}
-          extraData={listItemsFilter}
-          renderItem={renderItems}
-          keyExtractor={(itemCurrent, index) => index.toString()}
-          showsVerticalScrollIndicator={false}
-        />
-      ) : (
-        <S.List
-          data={listCategory}
-          extraData={listCategory}
-          renderItem={renderCategory}
-          keyExtractor={(itemCurrent, index) => index.toString()}
-          showsVerticalScrollIndicator={false}
-        />
-      )}
+
+      <S.List
+        data={listCategory}
+        extraData={listCategory}
+        renderItem={renderCategory}
+        keyExtractor={(itemCurrent, index) => index.toString()}
+        showsVerticalScrollIndicator={false}
+      />
       <ButtonFloat iconColor={Colors.WHITE} actionButton={goToNewItem} />
     </S.Container>
   );
