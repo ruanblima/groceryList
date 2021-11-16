@@ -1,10 +1,17 @@
 import styled from 'styled-components/native';
 
+import { sfs } from '~/utils/responsibleText';
+
 export const Container = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
   background-color: white;
+`;
+
+export const Image = styled.Image`
+  height: 60px;
+  width: 60px;
 `;
 
 export const ContainerList = styled.View`
@@ -29,7 +36,7 @@ export const TextInput = styled.TextInput`
 `;
 
 export const ContainerItem = styled.View`
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: row;
   margin-bottom: 20px;
@@ -42,7 +49,8 @@ export const TitleCategory = styled.Text`
 `;
 
 export const TitleItem = styled.Text`
-  font-size: 20px;
+  font-size: ${sfs(20)}px;
+  margin-left: 20px;
   color: ${({ theme }) => theme.Colors.TEXT_CLICKABLE};
 `;
 

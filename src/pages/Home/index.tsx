@@ -21,6 +21,7 @@ export function Home({ navigation }: any) {
   const renderItems = ({ item }: any) => {
     return (
       <S.ContainerItem>
+        <S.Image source={{ uri: item.image_url }} />
         <S.TitleItem>{item.name}</S.TitleItem>
       </S.ContainerItem>
     );
