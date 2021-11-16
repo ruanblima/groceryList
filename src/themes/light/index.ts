@@ -11,6 +11,7 @@ export default {
     TEXT_NO_CLICKABLE: '#333',
     TEXT_CLICKABLE: '#333',
     ICON_COLOR_CLICKABLE: '#0076ce',
+    TITLE_TEXT: '#C0CCDA',
   },
 
   Sizes: {

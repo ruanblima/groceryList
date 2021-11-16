@@ -4,7 +4,7 @@ import React from 'react';
 import { SafeAreaView } from 'react-native';
 import { ThemeProvider } from 'styled-components/native';
 
-import Home from '~/pages/Home';
+import { Home } from '~/pages/Home';
 import Login from '~/pages/Login';
 
 import { HOME_SCREEN, LOGIN_SCREEN } from '~/constants/routes';

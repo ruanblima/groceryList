@@ -10,6 +10,7 @@ type ColorsProps = {
   TEXT_NO_CLICKABLE: string;
   TEXT_CLICKABLE: string;
   ICON_COLOR_CLICKABLE: string;
+  TITLE_TEXT: string;
 };
 
 type SizeProps = {

@@ -1,34 +1,74 @@
 import styled from 'styled-components/native';
 
+import Icon from '~/components/Icon';
+
 export const Container = styled.View`
   flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
 `;
 
-export const ContainerProduct = styled.View`
-  flex: 1;
-  margin-bottom: 10px;
+export const ContainerList = styled.View`
+  justify-content: flex-start;
+  align-items: flex-start;
 `;
 
-export const ContainerCategory = styled.View`
-  flex: 1;
-  margin-bottom: 10px;
+export const ContainerSearch = styled.View`
+  width: 100%;
+  padding: 10px 0px;
+  border-width: 9px;
+  border-color: ${({ theme }) => theme.Colors.TITLE_TEXT};
+  justify-content: center;
+  align-items: center;
 `;
 
-export const CategoryText = styled.Text`
-  font-size: 22px;
-  margin-bottom: 10px;
-`;
-
-export const ProductText = styled.Text`
+export const TextInput = styled.TextInput`
+  padding: 5px 10px;
   font-size: 20px;
-  margin-bottom: 10px;
+  width: 100%;
+  border-radius: 10px;
 `;
 
-export const ListCategory = styled.FlatList`
-  flex: 1;
-  padding: 10px;
+export const ContainerItem = styled.View`
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 20px;
 `;
 
-export const ListProducts = styled.FlatList`
-  flex: 1;
+export const TitleCategory = styled.Text`
+  font-size: 25px;
+  color: ${({ theme }) => theme.Colors.TITLE_TEXT};
+  font-weight: bold;
 `;
+
+export const TitleItem = styled.Text`
+  font-size: 20px;
+  color: ${({ theme }) => theme.Colors.TEXT_CLICKABLE};
+`;
+
+export const List = styled.FlatList`
+  width: 100%;
+  padding: 20px;
+`;
+
+export const ButtonText = styled.Text`
+  color: white;
+  font-size: 20px;
+`;
+
+export const ButtonIcon = styled.TouchableOpacity``;
+
+export const Button = styled.TouchableOpacity`
+  background-color: ${({ theme }) => theme.Colors.BLUE};
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 50px;
+`;
+
+export const IconEdit = styled(Icon).attrs(() => ({
+  name: 'edit',
+  type: 'material',
+  size: 25,
+}))``;
