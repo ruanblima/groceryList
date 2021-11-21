@@ -1,5 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import { SafeAreaView } from 'react-native';
 import { ThemeProvider } from 'styled-components/native';
@@ -12,7 +12,7 @@ import { Header } from '~/components/Header';
 import { HOME_SCREEN, LOGIN_SCREEN } from '~/constants/routes';
 import Theme from '~/themes';
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 export function RootStack() {
   return (

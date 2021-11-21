@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 import Input from '~/components/Input';
 
+import groceries from '~/assets/images/groceries.png';
 import { HOME_SCREEN } from '~/constants/routes';
 
 import * as S from './styles';
@@ -22,9 +23,9 @@ export function Login({ navigation }: Props) {
   return (
     <S.Container>
       <S.StatusBar />
-      <S.ContainerHeader>
-        <S.TextLogin>Login</S.TextLogin>
-      </S.ContainerHeader>
+      <S.ContainerImage>
+        <S.Image source={groceries} />
+      </S.ContainerImage>
       <S.ContainerInputs>
         <Input
           iconLeft="person"
@@ -46,7 +47,7 @@ export function Login({ navigation }: Props) {
       </S.ContainerInputs>
       <S.ContainerButton>
         <S.Button onPress={() => handleLogin()}>
-          <S.ButtonText>ENTRAR</S.ButtonText>
+          <S.ButtonText>Entrar</S.ButtonText>
         </S.Button>
       </S.ContainerButton>
     </S.Container>

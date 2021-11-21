@@ -17,6 +17,7 @@ interface ContainerProps {
 interface ContainerInputProps {
   error: string;
   labelSameLine?: boolean;
+  borderBottom?: boolean;
 }
 
 interface TextInputProps {
@@ -43,14 +44,16 @@ export const ContainerInput = styled.View<ContainerInputProps>`
   flex-direction: row;
   border-color: ${({ theme, error }) =>
     error ? theme.Colors.ERROR : theme.Colors.MEDIUM_GRAY};
-  background-color: ${({ theme }) => theme.Colors.BLUE};
+  background-color: ${({ theme }) => theme.Colors.WHITE};
   margin-top: ${({ labelSameLine }) => (labelSameLine ? 0 : 10)}px;
   margin-left: ${({ labelSameLine }) => (labelSameLine ? 15 : 0)}px;
   width: ${({ labelSameLine }) => (labelSameLine ? '65%' : '100%')};
   border-radius: 2px;
-  border-bottom-width: 1px;
+  border-bottom-width: ${({ borderBottom }) => (borderBottom ? 1 : 0)}px;
   justify-content: space-between;
   align-items: center;
+  padding: 10px 15px;
+  border-radius: 10px;
 `;
 
 export const Container = styled.View<ContainerProps>`
@@ -64,9 +67,8 @@ export const Container = styled.View<ContainerProps>`
 export const Input = styled.TextInput.attrs<TextInputProps>(({ theme }) => ({
   placeholderTextColor: theme.Colors.TEXT_CLICKABLE,
 }))<TextInputProps>`
-  width: ${({ iconRight }) => (iconRight ? 90 : 100)}%;
+  width: ${({ iconRight }) => (iconRight ? 80 : 100)}%;
   font-size: ${({ theme }) => theme.Sizes.FONTSIZE_INPUT}px;
-  margin-bottom: ${vs(10)}px;
   margin-left: 10px;
   color: ${({ theme }) => theme.Colors.TEXT_NO_CLICKABLE};
 `;

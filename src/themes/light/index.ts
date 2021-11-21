@@ -2,15 +2,15 @@ import { ms, sfs } from '~/utils/responsibleText';
 
 export default {
   Colors: {
-    BLUE: '#0076ce',
+    BLUE: '#4299E1',
     WHITE: '#FFFFFF',
-    ICON_NO_CLICKABLE: '#0076ce',
+    ICON_NO_CLICKABLE: '#4299E1',
     FONT_INPUT: '#444444',
     ERROR: '#C12126',
     MEDIUM_GRAY: '#666',
     TEXT_NO_CLICKABLE: '#333',
     TEXT_CLICKABLE: '#333',
-    ICON_COLOR_CLICKABLE: '#0076ce',
+    ICON_COLOR_CLICKABLE: '#4299E1',
     TITLE_TEXT: '#C0CCDA',
   },
 
