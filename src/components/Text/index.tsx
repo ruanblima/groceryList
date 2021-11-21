@@ -7,16 +7,14 @@ interface NewTextProps {
   fontSize?: number;
 }
 
-const NewText: React.FC<NewTextProps & TextProps> = ({
+export function NewText({
   fontSize = 16,
   children,
   ...rest
-}) => {
+}: NewTextProps & TextProps) {
   return (
     <S.Text {...rest} fontSize={fontSize}>
       {children}
     </S.Text>
   );
-};
-
-export default NewText;
+}

@@ -12,6 +12,7 @@ interface InputProps {
   iconLeft?: string;
   iconType?: string;
   error?: any;
+  borderBottom?: boolean;
   labelSameLine?: boolean;
   actionIcon?: () => void;
 }
@@ -23,6 +24,7 @@ const Input: React.FC<TextInputProps & InputProps> = ({
   labelSameLine,
   error,
   iconType,
+  borderBottom,
   actionIcon,
   ...rest
 }) => {
@@ -31,20 +33,24 @@ const Input: React.FC<TextInputProps & InputProps> = ({
   return (
     <S.InputWrapper>
       <S.ContainerInputIcon>
-        {iconLeft && (
-          <S.IconInput
-            iconType={iconType}
-            iconColor={Colors.ICON_NO_CLICKABLE}
-            name={iconLeft}
-          />
-        )}
         <S.Container labelSameLine={labelSameLine}>
           {label && <S.Label fontSize={sfs(9)}>{label}</S.Label>}
-          <S.ContainerInput error={error} labelSameLine={labelSameLine}>
+          <S.ContainerInput
+            borderBottom={borderBottom}
+            error={error}
+            labelSameLine={labelSameLine}
+          >
+            {iconLeft && (
+              <S.IconInput
+                iconType={iconType}
+                color={Colors.BLUE}
+                name={iconLeft}
+              />
+            )}
             <S.Input {...rest} autoCapitalize="none" iconRight={iconRight} />
             {iconRight && (
               <S.Touchable onPress={() => actionIcon && actionIcon()}>
-                <S.IconInput name={iconRight} />
+                <S.IconInput name={iconRight} color={Colors.BLUE} />
               </S.Touchable>
             )}
           </S.ContainerInput>

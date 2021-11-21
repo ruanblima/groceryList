@@ -1,8 +1,7 @@
-import { vs } from 'react-native-size-matters';
 import styled from 'styled-components/native';
 
 import Icon from '~/components/Icon';
-import Text from '~/components/Text';
+import { NewText } from '~/components/Text';
 
 interface IconInputProps {
   name: string;
@@ -34,7 +33,7 @@ export const ContainerInputIcon = styled.View`
 
 export const Touchable = styled.TouchableOpacity``;
 
-export const Label = styled(Text).attrs(({ theme }) => ({
+export const Label = styled(NewText).attrs(({ theme }) => ({
   fontSize: theme.Sizes.FONTSIZE_INPUT_LABEL,
 }))`
   color: ${({ theme }) => theme.Colors.FONT_INPUT};
@@ -72,7 +71,7 @@ export const Input = styled.TextInput.attrs<TextInputProps>(({ theme }) => ({
   margin-left: 10px;
   color: ${({ theme }) => theme.Colors.TEXT_NO_CLICKABLE};
 `;
-export const ErrorMessage = styled(Text)`
+export const ErrorMessage = styled(NewText)`
   color: ${({ theme }) => theme.Colors.ERROR};
   margin-top: 15px;
   margin-left: 30px;

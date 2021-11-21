@@ -1,9 +1,9 @@
 import styled from 'styled-components/native';
 
 import Icon from '~/components/Icon';
-import Text from '~/components/Text';
+import { NewText } from '~/components/Text';
 
-import { s, sfs, vs } from '~/utils/responsibleText';
+import { sfs, vs } from '~/utils/responsibleText';
 
 interface Props {
   enableNavigation?: boolean;
@@ -28,7 +28,7 @@ export const ContainerTitle = styled.View<Props>`
     enableNavigation || iconRight ? 0.8 : 1};
 `;
 
-export const Title = styled(Text).attrs({
+export const Title = styled(NewText).attrs({
   fontSize: sfs(23),
 })`
   font-weight: bold;
@@ -38,7 +38,8 @@ export const Title = styled(Text).attrs({
 
 export const ButtonLeft = styled.TouchableOpacity`
   flex: 0.2;
-  margin-left: -10px;
+  margin-left: 15px;
+  margin-right: 55px;
 `;
 
 export const IconColor = styled(Icon).attrs(({ theme }) => ({
@@ -49,11 +50,11 @@ export const IconColor = styled(Icon).attrs(({ theme }) => ({
 `;
 
 export const IconBack = styled(Icon).attrs(({ theme }) => ({
-  name: 'chevron-left',
+  name: 'arrow-back',
   size: theme.Sizes.ICON_SIZE_BACK,
-}))`
-  color: ${({ theme }) => theme.Colors.TEXT_CLICKABLE};
-`;
+  color: theme.Colors.WHITE,
+  type: 'ionicons',
+}))``;
 
 export const ButtonRight = styled.TouchableOpacity`
   flex: 0.2;

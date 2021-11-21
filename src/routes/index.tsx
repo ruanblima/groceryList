@@ -4,12 +4,13 @@ import React from 'react';
 import { SafeAreaView } from 'react-native';
 import { ThemeProvider } from 'styled-components/native';
 
+import { Cart } from '~/pages/Cart';
 import { Home } from '~/pages/Home';
 import { Login } from '~/pages/Login';
 
 import { Header } from '~/components/Header';
 
-import { HOME_SCREEN, LOGIN_SCREEN } from '~/constants/routes';
+import { HOME_SCREEN, LOGIN_SCREEN, CART_SCREEN } from '~/constants/routes';
 import Theme from '~/themes';
 
 const Stack = createNativeStackNavigator();
@@ -30,6 +31,15 @@ export function RootStack() {
               component={Home}
               options={{
                 header: props => <Header {...props} />,
+              }}
+            />
+            <Stack.Screen
+              name={CART_SCREEN}
+              component={Cart}
+              options={{
+                header: props => (
+                  <Header enableNavigation title="Carrinho" {...props} />
+                ),
               }}
             />
           </Stack.Navigator>
