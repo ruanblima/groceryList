@@ -8,6 +8,7 @@ export const StatusBar = styled.StatusBar.attrs(({ theme }) => ({
 
 export const Container = styled.View`
   flex: 1;
+  align-items: center;
   background-color: ${({ theme }) => theme.Colors.BLUE};
 `;
 
@@ -24,6 +25,7 @@ export const TextLogin = styled.Text`
 
 export const ContainerInputs = styled.View`
   flex: 0.2;
+  width: 88%;
   justify-content: center;
   align-items: center;
   margin-top: 50px;

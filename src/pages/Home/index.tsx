@@ -4,6 +4,8 @@ import { ThemeContext } from 'styled-components';
 
 import { ButtonFloat } from '~/components/ButtonFloat';
 
+import { CART_SCREEN, NEW_ITEM_SCREEN } from '~/constants/routes';
+
 import { listCategory } from './mock';
 
 // import { NEW_ITEM } from '~/constants/routes';
@@ -48,11 +50,11 @@ export function Home({ navigation }: Props) {
   };
 
   const goToNewItem = () => {
-    // navigation.navigate(NEW_ITEM, { item: null });
+    navigation.navigate(NEW_ITEM_SCREEN, { item: null });
   };
 
   const goToCart = () => {
-    // navigation.navigate(NEW_ITEM, { item: null });
+    navigation.navigate(CART_SCREEN);
   };
 
   useEffect(() => {
@@ -85,6 +87,16 @@ export function Home({ navigation }: Props) {
       <ButtonFloat iconColor={Colors.WHITE} actionButton={goToNewItem} />
       <S.ContainerBottom>
         <S.IconList />
+        <S.ContainerBottomText>
+          <S.ContainerAllItems>
+            <S.TextBottom>Total de itens</S.TextBottom>
+            <S.TextBottom>10</S.TextBottom>
+          </S.ContainerAllItems>
+          <S.ContainerAllItems>
+            <S.TextBottom>Valor total</S.TextBottom>
+            <S.TextBottom>R$ 350,00</S.TextBottom>
+          </S.ContainerAllItems>
+        </S.ContainerBottomText>
       </S.ContainerBottom>
     </S.Container>
   );
