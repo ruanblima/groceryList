@@ -1,22 +1,26 @@
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import Input from '~/components/Input';
 
 import groceries from '~/assets/images/groceries.png';
 import { HOME_SCREEN } from '~/constants/routes';
+import { loginAction } from '~/store/ducks/user/actions';
 
 import * as S from './styles';
 
 type Props = NativeStackScreenProps<any, 'LoginScreen'>;
 
 export function Login({ navigation }: Props) {
+  const dispatch = useDispatch();
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
   const [showPassword, setShowPassword] = useState(false);
 
   function handleLogin() {
+    dispatch(loginAction(username, password));
     navigation.navigate(HOME_SCREEN);
   }
 

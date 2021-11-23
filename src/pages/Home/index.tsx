@@ -1,9 +1,11 @@
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useEffect, useState, useContext } from 'react';
+import { useSelector } from 'react-redux';
 import { ThemeContext } from 'styled-components';
 
 import { ButtonFloat } from '~/components/ButtonFloat';
 
+import type { AplicationState } from '~/@types/entities/AplicationState';
 import { CART_SCREEN, NEW_ITEM_SCREEN } from '~/constants/routes';
 
 import { listCategory } from './mock';
@@ -18,6 +20,8 @@ export function Home({ navigation }: Props) {
   const { Colors } = useContext(ThemeContext);
 
   const [searchName, setSearchName] = useState('');
+
+  const { username } = useSelector((state: AplicationState) => state.user);
 
   const goEditItem = (item: any) => {
     // navigation.navigate(NEW_ITEM, { item });
@@ -63,9 +67,9 @@ export function Home({ navigation }: Props) {
       iconType: 'ionicons',
       actionButtonRight: goToCart,
       iconColor: Colors.WHITE,
-      title: 'Bem vindo Ruan',
+      title: `Bem vindo ${username}`,
     });
-  }, [navigation, goToCart, Colors]);
+  }, [navigation, goToCart, Colors, username]);
 
   return (
     <S.Container>

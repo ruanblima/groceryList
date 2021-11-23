@@ -1,6 +1,5 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useState, useEffect } from 'react';
-import { List } from 'react-native-paper';
 
 import Input from '~/components/Input';
 import { Picker } from '~/components/Picker';
@@ -32,7 +31,7 @@ export function NewItem() {
       setCategory(item.category);
       setPrice(item.price);
     }
-  }, []);
+  }, [item, navigation]);
 
   const newItemList = () => {
     navigation.goBack();
