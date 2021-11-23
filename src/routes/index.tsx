@@ -7,10 +7,16 @@ import { ThemeProvider } from 'styled-components/native';
 import { Cart } from '~/pages/Cart';
 import { Home } from '~/pages/Home';
 import { Login } from '~/pages/Login';
+import { NewItem } from '~/pages/NewItem';
 
 import { Header } from '~/components/Header';
 
-import { HOME_SCREEN, LOGIN_SCREEN, CART_SCREEN } from '~/constants/routes';
+import {
+  HOME_SCREEN,
+  LOGIN_SCREEN,
+  CART_SCREEN,
+  NEW_ITEM_SCREEN,
+} from '~/constants/routes';
 import Theme from '~/themes';
 
 const Stack = createNativeStackNavigator();
@@ -39,6 +45,19 @@ export function RootStack() {
               options={{
                 header: props => (
                   <Header enableNavigation title="Carrinho" {...props} />
+                ),
+              }}
+            />
+            <Stack.Screen
+              name={NEW_ITEM_SCREEN}
+              component={NewItem}
+              options={{
+                header: props => (
+                  <Header
+                    enableNavigation
+                    title="Cadastrar Produto"
+                    {...props}
+                  />
                 ),
               }}
             />
