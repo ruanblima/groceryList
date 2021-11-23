@@ -42,7 +42,6 @@ export const ContainerItem = styled.TouchableOpacity`
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  margin-bottom: 20px;
 `;
 
 export const Item = styled.View`
@@ -52,13 +51,13 @@ export const Item = styled.View`
 `;
 
 export const TitleCategory = styled(NewText)`
-  font-size: 25px;
+  font-size: ${({ theme }) => theme.Sizes.FONTSIZE_LABEL}px;
   color: ${({ theme }) => theme.Colors.TITLE_TEXT};
   font-weight: bold;
 `;
 
 export const TitleItem = styled(NewText)`
-  font-size: ${sfs(20)}px;
+  font-size: ${sfs(16)}px;
   margin-left: 20px;
   color: ${({ theme }) => theme.Colors.TEXT_CLICKABLE};
 `;
@@ -95,8 +94,8 @@ export const ContainerAllItems = styled.View`
 export const ContainerBottomText = styled.View``;
 
 export const TextBottom = styled(NewText)`
-  font-size: ${sfs(20)}px;
-  margin-left: 20px;
+  font-size: ${sfs(18)}px;
+  margin-left: 25px;
   color: ${({ theme }) => theme.Colors.WHITE};
 `;
 

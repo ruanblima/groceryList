@@ -25,7 +25,9 @@ export const StatusBar = styled.StatusBar.attrs(({ theme }) => ({
 
 export const ContainerTitle = styled.View<Props>`
   flex: ${({ enableNavigation, iconRight }) =>
-    enableNavigation || iconRight ? 0.8 : 1};
+    enableNavigation || iconRight ? 0.9 : 1};
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Title = styled(NewText).attrs({
@@ -33,13 +35,11 @@ export const Title = styled(NewText).attrs({
 })`
   font-weight: bold;
   color: ${({ theme }) => theme.Colors.WHITE};
-  margin-left: 18px;
 `;
 
 export const ButtonLeft = styled.TouchableOpacity`
-  flex: 0.2;
+  flex: 0.1;
   margin-left: 15px;
-  margin-right: 55px;
 `;
 
 export const IconColor = styled(Icon).attrs(({ theme }) => ({

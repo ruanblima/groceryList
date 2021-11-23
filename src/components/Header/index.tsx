@@ -41,7 +41,3 @@ export function Header({
     </S.Container>
   );
 }
-
-export const headerOption = {
-  header: (props: any) => <Header {...props} />,
-};

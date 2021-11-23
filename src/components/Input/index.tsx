@@ -47,7 +47,12 @@ const Input: React.FC<TextInputProps & InputProps> = ({
                 name={iconLeft}
               />
             )}
-            <S.Input {...rest} autoCapitalize="none" iconRight={iconRight} />
+            <S.Input
+              {...rest}
+              autoCapitalize="none"
+              iconLeft={iconLeft}
+              iconRight={iconRight}
+            />
             {iconRight && (
               <S.Touchable onPress={() => actionIcon && actionIcon()}>
                 <S.IconInput name={iconRight} color={Colors.BLUE} />

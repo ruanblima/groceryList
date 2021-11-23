@@ -21,6 +21,7 @@ interface ContainerInputProps {
 
 interface TextInputProps {
   iconRight?: string;
+  iconLeft?: string;
 }
 
 export const InputWrapper = styled.View``;
@@ -56,7 +57,7 @@ export const ContainerInput = styled.View<ContainerInputProps>`
 `;
 
 export const Container = styled.View<ContainerProps>`
-  width: 90%;
+  width: 100%;
   flex-direction: ${({ labelSameLine }) => (labelSameLine ? 'row' : 'column')};
   align-items: ${({ labelSameLine }) =>
     labelSameLine ? 'center' : 'flex-start'};
@@ -67,8 +68,8 @@ export const Input = styled.TextInput.attrs<TextInputProps>(({ theme }) => ({
   placeholderTextColor: theme.Colors.TEXT_CLICKABLE,
 }))<TextInputProps>`
   width: ${({ iconRight }) => (iconRight ? 80 : 100)}%;
+  margin-left: ${({ iconLeft }) => (iconLeft ? 10 : 0)}px;
   font-size: ${({ theme }) => theme.Sizes.FONTSIZE_INPUT}px;
-  margin-left: 10px;
   color: ${({ theme }) => theme.Colors.TEXT_NO_CLICKABLE};
 `;
 export const ErrorMessage = styled(NewText)`
