@@ -20,6 +20,10 @@ export function NewItem() {
   const [amount, setAmout] = useState('');
   const [category, setCategory] = useState<CategoryProps>();
   const [price, setPrice] = useState('');
+  const [unity, setUnity] = useState('');
+  const [image, setImage] = useState(
+    'https://alumni.fsm.undip.ac.id/assets/img/berita/04-12-20-12-15-15.jpg',
+  );
 
   useEffect(() => {
     navigation.setOptions({
@@ -59,6 +63,15 @@ export function NewItem() {
           borderBottom
           value={amount}
           onChangeText={setAmout}
+        />
+      </S.ContainerInput>
+      <S.ContainerInput>
+        <S.Label>Unidade</S.Label>
+        <Input
+          placeholder="Digite a unidade"
+          borderBottom
+          value={unity}
+          onChangeText={setUnity}
         />
       </S.ContainerInput>
       <S.ContainerInput>
