@@ -8,8 +8,6 @@ import { ButtonFloat } from '~/components/ButtonFloat';
 import type { AplicationState } from '~/@types/entities/AplicationState';
 import { CART_SCREEN, NEW_ITEM_SCREEN } from '~/constants/routes';
 
-import { listCategory } from './mock';
-
 // import { NEW_ITEM } from '~/constants/routes';
 
 import * as S from './styles';
@@ -22,6 +20,9 @@ export function Home({ navigation }: Props) {
   const [searchName, setSearchName] = useState('');
 
   const { username } = useSelector((state: AplicationState) => state.user);
+  const { groceryList } = useSelector(
+    (state: AplicationState) => state.grocery,
+  );
 
   const goEditItem = (item: any) => {
     // navigation.navigate(NEW_ITEM, { item });
@@ -82,8 +83,8 @@ export function Home({ navigation }: Props) {
       </S.ContainerSearch>
 
       <S.ListCategory
-        data={listCategory}
-        extraData={listCategory}
+        data={groceryList}
+        extraData={groceryList}
         renderItem={renderCategory}
         keyExtractor={(itemCurrent, index) => index.toString()}
         showsVerticalScrollIndicator={false}

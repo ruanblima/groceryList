@@ -9,3 +9,8 @@ export enum GroceryTypes {
 export interface GroceryState {
   groceryList: GroceryProps[];
 }
+
+export interface InsertItemActionProps extends Action {
+  type: GroceryTypes.INSERT_ITEM;
+  payload: { groceryList: GroceryProps[] };
+}

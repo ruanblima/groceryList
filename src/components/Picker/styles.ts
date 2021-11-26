@@ -49,13 +49,6 @@ export const ContainerModal = styled.TouchableOpacity`
   flex: 1;
 `;
 
-export const List = styled.FlatList`
-  height: 110px;
-  padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-`;
-
 export const IconPicker = styled(Icon)`
   font-size: 30px;
 `;

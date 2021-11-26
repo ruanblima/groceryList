@@ -1,8 +1,11 @@
+import type { CategoryProps } from './Category';
+
 export interface ProductProps {
-  id: number;
+  id: string;
   name: string;
   amount: number;
   price?: number;
-  unidade?: string;
+  unity: string;
   image_url?: string;
+  category: CategoryProps;
 }

@@ -21,9 +21,9 @@ export function Picker({ itemSelect, setItem, categories, disabled }: Props) {
     setShowList(false);
   };
 
-  const renderItems = ({ item }: any) => {
+  const renderItems = (item: CategoryProps) => {
     return (
-      <S.Touchable onPress={() => selectItem(item)}>
+      <S.Touchable key={item.id} onPress={() => selectItem(item)}>
         <S.ContainerList>
           <S.TitleItem>{item.name}</S.TitleItem>
         </S.ContainerList>
@@ -48,13 +48,11 @@ export function Picker({ itemSelect, setItem, categories, disabled }: Props) {
         </S.Touchable>
 
         {showList && (
-          <S.List
-            data={categories}
-            extraData={categories}
-            renderItem={renderItems}
-            keyExtractor={(item: any) => item.id.toString()}
-            showsVerticalScrollIndicator={false}
-          />
+          <>
+            {categories.map(category => {
+              return renderItems(category);
+            })}
+          </>
         )}
       </S.ContainerPicker>
     </S.Container>
