@@ -50,22 +50,22 @@ export function NewItem() {
   }, [item, navigation]);
 
   const newItemList = () => {
-    const list = cloneDeep(groceryList);
-    const newList = insertItem(
-      list,
-      category,
-      name,
-      amount,
-      price,
-      image,
-      unity,
-    );
+    if (category) {
+      const list = cloneDeep(groceryList);
+      const newList = insertItem(
+        list,
+        category,
+        name,
+        amount,
+        price,
+        image,
+        unity,
+      );
 
-    console.log('newList', newList);
+      dispatch(insertItemAction(newList));
 
-    dispatch(insertItemAction(newList));
-
-    navigation.goBack();
+      navigation.goBack();
+    }
   };
 
   const editItemList = () => {

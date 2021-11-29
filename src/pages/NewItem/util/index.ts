@@ -10,8 +10,8 @@ export const insertItem = (
   groceryList: GroceryProps[],
   category: CategoryProps,
   name: string,
-  amount: number,
-  price: number,
+  amount: string,
+  price: string,
   image: string,
   unity: string,
 ) => {
@@ -26,6 +26,7 @@ export const insertItem = (
         price,
         image_url: image,
         unity,
+        isAdded: false,
       };
       return categoryCurrent.listItems.push(newItem);
     }
@@ -33,4 +34,27 @@ export const insertItem = (
   });
 
   return newList;
+};
+
+export const editItem = (
+  groceryList: GroceryProps[],
+  idCategory: string,
+  idItem: string,
+  name: string,
+  amount: string,
+) => {
+  const list = cloneDeep(groceryList);
+
+  const indexCategory = list.findIndex(
+    (obj: GroceryProps) => obj.id === idCategory,
+  );
+
+  const indexItem = list[indexCategory].listItems.findIndex(
+    obj => obj.id === idItem,
+  );
+
+  list[indexCategory].listItems[indexItem].name = name;
+  list[indexCategory].listItems[indexItem].amount = amount;
+
+  return list;
 };

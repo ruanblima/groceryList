@@ -53,7 +53,9 @@ export const ButtonText = styled.Text`
 
 export const Button = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.Colors.BLUE};
-  margin-top: 20px;
+  margin: 40px 60px;
   border-radius: 6px;
+  justify-content: center;
+  align-items: center;
   padding: 15px;
 `;

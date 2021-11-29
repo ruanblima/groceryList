@@ -92,7 +92,9 @@ export const ContainerAllItems = styled.View`
   align-items: flex-start;
 `;
 
-export const ContainerBottomText = styled.View``;
+export const ContainerBottomText = styled.View`
+  padding: 8px;
+`;
 
 export const TextBottom = styled(NewText)`
   font-size: ${sfs(18)}px;
