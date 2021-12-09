@@ -1,6 +1,7 @@
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { includes, filter, toUpper } from 'lodash';
 import React, { useEffect, useState, useContext } from 'react';
+import type { ListRenderItem } from 'react-native';
 import { useSelector } from 'react-redux';
 import { ThemeContext } from 'styled-components';
 
@@ -52,19 +53,21 @@ export function Home({ navigation }: Props) {
     setList(newList);
   }, [groceryList]);
 
-  const updateItemsFilter = () => {
-    let itemsFilter = [];
-    itemsFilter = filter(allListItems, item =>
-      includes(toUpper(item.name), toUpper(searchName)),
-    );
-    setListItemsFilter(itemsFilter);
-  };
+  // const updateItemsFilter = () => {
+  //   let itemsFilter = [];
+  //   itemsFilter = filter(allListItems, item =>
+  //     includes(toUpper(item.name), toUpper(searchName)),
+  //   );
+  //   setListItemsFilter(itemsFilter);
+  // };
 
-  useEffect(() => {
-    if (searchName) {
-      updateItemsFilter();
-    }
-  }, [searchName, updateItemsFilter]);
+  // useEffect(() => {
+  //   if (searchName) {
+  //     updateItemsFilter();
+  //   } else {
+  //     updateItemsFilter([]);
+  //   }
+  // }, [searchName, updateItemsFilter]);
 
   function showModal() {
     setVisible(true);
@@ -83,7 +86,7 @@ export function Home({ navigation }: Props) {
     );
   };
 
-  const renderCategory = ({ item }: any) => {
+  const renderCategory: ListRenderItem<GroceryProps> = ({ item }) => {
     return (
       <S.ContainerList>
         <S.TitleCategory>{item.name}</S.TitleCategory>
