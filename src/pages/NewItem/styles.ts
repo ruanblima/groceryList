@@ -59,3 +59,9 @@ export const Button = styled.TouchableOpacity`
   align-items: center;
   padding: 15px;
 `;
+
+export const Image = styled.Image`
+  width: 130px;
+  height: 130px;
+  border-radius: 65px;
+`;

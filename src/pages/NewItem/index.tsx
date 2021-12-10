@@ -1,6 +1,8 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
+import * as ImagePicker from 'expo-image-picker';
 import cloneDeep from 'lodash/cloneDeep';
 import React, { useState, useEffect } from 'react';
+import { Platform } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Input from '~/components/Input';
@@ -26,9 +28,7 @@ export function NewItem() {
   const [category, setCategory] = useState<CategoryProps>();
   const [price, setPrice] = useState('');
   const [unity, setUnity] = useState('');
-  const [image, setImage] = useState(
-    'https://alumni.fsm.undip.ac.id/assets/img/berita/04-12-20-12-15-15.jpg',
-  );
+  const [image, setImage] = useState('');
 
   const { categoryList } = useSelector(
     (state: AplicationState) => state.category,
@@ -36,6 +36,44 @@ export function NewItem() {
   const { groceryList } = useSelector(
     (state: AplicationState) => state.grocery,
   );
+
+  useEffect(() => {
+    (async () => {
+      if (Platform.OS !== 'web') {
+        const { status } =
+          await ImagePicker.requestMediaLibraryPermissionsAsync();
+        if (status !== 'granted') {
+          alert('Sorry, we need camera roll permissions to make this work!');
+        }
+      }
+    })();
+  }, []);
+
+  const pickImage = async () => {
+    const result = await ImagePicker.launchCameraAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    if (!result.cancelled) {
+      setImage(result.uri);
+    }
+  };
+
+  const selectImage = async () => {
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    if (!result.cancelled) {
+      setImage(result.uri);
+    }
+  };
 
   useEffect(() => {
     navigation.setOptions({
@@ -75,6 +113,15 @@ export function NewItem() {
   return (
     <S.Container>
       <S.ContainerInput>
+        {image && <S.Image source={{ uri: image }} />}
+        <S.Button onPress={() => pickImage()}>
+          <S.ButtonText>Tirar foto</S.ButtonText>
+        </S.Button>
+
+        <S.Button onPress={() => selectImage()}>
+          <S.ButtonText>Selecionar foto</S.ButtonText>
+        </S.Button>
+
         <S.Label>Nome</S.Label>
         <Input
           placeholder="Digite o nome"
