@@ -1,3 +1,4 @@
+import { useFormik } from 'formik';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -6,18 +7,33 @@ import Input from '~/components/Input';
 import groceries from '~/assets/images/groceries.png';
 import { loginAction } from '~/store/ducks/user/actions';
 
+import { validationSchema } from './validations';
+
 import * as S from './styles';
+
+interface DataProps {
+  username: string;
+  password: string;
+}
 
 export function Login() {
   const dispatch = useDispatch();
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-  function handleLogin() {
-    dispatch(loginAction(username, password));
+  function handleLogin(data: DataProps) {
+    dispatch(loginAction(data.username, data.password));
   }
+
+  const { handleSubmit, dirty, handleChange, values, errors } = useFormik({
+    initialValues: {
+      username: '',
+      password: '',
+    },
+    validationSchema,
+    onSubmit: handleLogin,
+    validateOnChange: false,
+  });
 
   return (
     <S.Container>
@@ -30,22 +46,24 @@ export function Login() {
           iconLeft="person"
           iconType="ionicons"
           placeholder="Digite seu username"
-          value={username}
-          onChangeText={setUsername}
+          value={values.username}
+          error={errors.username}
+          onChangeText={handleChange('username')}
         />
 
         <Input
           iconLeft="lock"
           placeholder="Digite sua senha"
-          value={password}
-          onChangeText={setPassword}
+          value={values.password}
+          error={errors.password}
+          onChangeText={handleChange('password')}
           secureTextEntry={!showPassword}
           actionIcon={() => setShowPassword(!showPassword)}
           iconRight={showPassword ? 'eye-off' : 'eye'}
         />
       </S.ContainerInputs>
       <S.ContainerButton>
-        <S.Button onPress={() => handleLogin()}>
+        <S.Button disabled={!dirty} onPress={() => handleSubmit()}>
           <S.ButtonText>Entrar</S.ButtonText>
         </S.Button>
       </S.ContainerButton>

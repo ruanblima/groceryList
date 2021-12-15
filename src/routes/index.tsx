@@ -30,7 +30,7 @@ export function RootStack() {
     <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
       <ThemeProvider theme={Theme.light}>
         <NavigationContainer>
-          {isLogged ? (
+          {!isLogged ? (
             <Stack.Navigator initialRouteName={HOME_SCREEN}>
               <Stack.Screen
                 name={HOME_SCREEN}
