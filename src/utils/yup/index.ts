@@ -6,7 +6,15 @@ interface LabelProps {
   label?: string;
 }
 
+interface MinProps {
+  min: number;
+}
+
 const translation = {
+  string: {
+    min: ({ min }: MinProps) =>
+      `Este campo deve ter pelo menos ${min} caracteres `,
+  },
   mixed: {
     required: ({ label }: LabelProps) =>
       label
