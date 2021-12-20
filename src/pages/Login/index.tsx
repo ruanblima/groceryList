@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import Input from '~/components/Input';
 
 import groceries from '~/assets/images/groceries.png';
+import { getCategorySubjectAction } from '~/store/ducks/categorySubject/actions';
 import { loginAction } from '~/store/ducks/user/actions';
 
 import { validationSchema } from './validations';
@@ -23,6 +24,10 @@ export function Login() {
 
   function handleLogin(data: DataProps) {
     dispatch(loginAction(data.username, data.password));
+  }
+
+  async function handleCategory() {
+    dispatch(getCategorySubjectAction());
   }
 
   const { handleSubmit, dirty, handleChange, values, errors } = useFormik({
@@ -63,7 +68,7 @@ export function Login() {
         />
       </S.ContainerInputs>
       <S.ContainerButton>
-        <S.Button disabled={!dirty} onPress={() => handleSubmit()}>
+        <S.Button disabled={!dirty} onPress={() => handleCategory()}>
           <S.ButtonText>Entrar</S.ButtonText>
         </S.Button>
       </S.ContainerButton>
