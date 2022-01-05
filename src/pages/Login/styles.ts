@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-import { vs } from '~/utils/responsibleText';
+import { vs, s, sfs } from '~/utils/responsibleText';
 
 export const StatusBar = styled.StatusBar.attrs(({ theme }) => ({
   backgroundColor: theme.Colors.BLUE,
@@ -18,33 +18,28 @@ export const ContainerImage = styled.View`
   align-items: center;
 `;
 
-export const TextLogin = styled.Text`
-  color: ${({ theme }) => theme.Colors.BLUE};
-  font-size: 55px;
-`;
-
 export const ContainerInputs = styled.View`
   flex: 0.2;
-  width: 88%;
+  width: ${s(320)}px;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-top: ${vs(50)}px;
 `;
 
 export const ButtonText = styled.Text`
   color: ${({ theme }) => theme.Colors.BLUE};
-  font-size: 20px;
+  font-size: ${sfs(20)}px;
 `;
 
 export const ContainerButton = styled.View`
   flex: 0.2;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: ${vs(20)}px;
 `;
 
 export const Button = styled.TouchableOpacity`
-  padding: 12px 60px;
+  padding: ${vs(12)}px ${s(50)}px;
   border-radius: 8px;
   justify-content: center;
   align-items: center;
